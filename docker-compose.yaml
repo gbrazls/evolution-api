@@ -13,8 +13,13 @@ services:
       - evolution_instances:/evolution/instances
     networks:
       - evolution-net
-    env_file:
-      - .env
+    environment:
+      - PGHOST=postgres.railway.internal
+      - PGPORT=5432
+      - PGUSER=postgres
+      - PGPASSWORD=KDlNZaKRCewepxWkUkrDsvUQpiZlLcjJ
+      - PGDATABASE=railway
+      - DATABASE_URL=postgresql://postgres:KDlNZaKRCewepxWkUkrDsvUQpiZlLcjJ@postgres.railway.internal:5432/railway # Este será o link fornecido pela Railway
     expose:
       - 8080
 
